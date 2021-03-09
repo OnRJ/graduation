@@ -1,6 +1,6 @@
 package com.food.service;
 
-import com.food.exception.BadRequestException;
+import com.food.util.exception.BadRequestException;
 import com.food.model.Meal;
 import com.food.repository.MealRepository;
 import org.springframework.beans.factory.annotation.Autowired;

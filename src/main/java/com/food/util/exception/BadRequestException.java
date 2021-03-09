@@ -1,4 +1,4 @@
-package com.food.exception;
+package com.food.util.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

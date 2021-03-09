@@ -5,11 +5,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "votes")
-public class Vote {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Vote extends AbstractBaseEntity {
 
     @Column(name = "datetime")
     private LocalDateTime dateCreate;
@@ -21,22 +17,13 @@ public class Vote {
     private int userId;
 
     public Vote() {
-
     }
 
     public Vote(int id, LocalDateTime dateCreate, int restaurantId, int userId) {
-        this.id = id;
+        super(id);
         this.dateCreate = dateCreate;
         this.restaurantId = restaurantId;
         this.userId = userId;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public void setDateCreate(LocalDateTime dateCreate) {
@@ -66,7 +53,6 @@ public class Vote {
     @Override
     public String toString() {
         return "Vote{" +
-                "id=" + id +
                 ", dateCreate=" + dateCreate +
                 ", restaurantId=" + restaurantId +
                 ", userId=" + userId +

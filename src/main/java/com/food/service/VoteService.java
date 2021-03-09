@@ -1,6 +1,6 @@
 package com.food.service;
 
-import com.food.exception.BadRequestException;
+import com.food.util.exception.BadRequestException;
 import com.food.model.Vote;
 import com.food.repository.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;

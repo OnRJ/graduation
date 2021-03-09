@@ -4,21 +4,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User extends AbstractBaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     @Enumerated(EnumType.STRING)
     private Role role;
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
-    }
 
     public void setRole(Role role) {
         this.role = role;
@@ -26,5 +15,12 @@ public class User {
 
     public Role getRole() {
         return role;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "role=" + role +
+                '}';
     }
 }

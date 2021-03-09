@@ -5,27 +5,14 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "meals")
-public class Meal {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Meal extends AbstractNamedEntity {
 
     @Column(name = "datetime")
     private LocalDateTime dateCreate;
-    private String name;
     private float price;
 
     @Column(name = "restaurant_Id")
     private int restaurantId;
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
 
     public void setDateCreate(LocalDateTime dateCreate) {
         this.dateCreate = dateCreate;
@@ -33,14 +20,6 @@ public class Meal {
 
     public LocalDateTime getDateCreate() {
         return dateCreate;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setPrice(float price) {
@@ -57,5 +36,14 @@ public class Meal {
 
     public int getRestaurantId() {
         return restaurantId;
+    }
+
+    @Override
+    public String toString() {
+        return "Meal{" +
+                "dateCreate=" + dateCreate +
+                ", price=" + price +
+                ", restaurantId=" + restaurantId +
+                '}';
     }
 }

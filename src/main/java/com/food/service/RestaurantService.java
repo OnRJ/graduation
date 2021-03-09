@@ -1,7 +1,7 @@
 package com.food.service;
 
-import com.food.exception.BadRequestException;
-import com.food.exception.RestaurantNotFoundException;
+import com.food.util.exception.BadRequestException;
+import com.food.util.exception.NotFoundException;
 import com.food.model.Restaurant;
 import com.food.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class RestaurantService {
         //checkParams(modifiedRestaurant);
 
         Restaurant restaurant = repository.findById(id)
-                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant is not found"));
+                .orElseThrow(() -> new NotFoundException("Restaurant is not found"));
 
         if (modifiedRestaurant.getName() != null) {
             restaurant.setName(modifiedRestaurant.getName());
