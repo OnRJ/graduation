@@ -1,6 +1,7 @@
 package com.food.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -8,12 +9,15 @@ import java.time.LocalDateTime;
 public class Vote extends AbstractBaseEntity {
 
     @Column(name = "datetime")
+    @NotNull
     private LocalDateTime dateCreate;
 
-    @Column(name = "restaurant_Id")
+    @Column(name = "restaurant_id")
+    @NotNull
     private int restaurantId;
 
-    @Column(name = "user_Id")
+    @Column(name = "user_id")
+    @NotNull
     private int userId;
 
     public Vote() {

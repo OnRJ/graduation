@@ -1,6 +1,7 @@
 package com.food.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -8,10 +9,15 @@ import java.time.LocalDateTime;
 public class Meal extends AbstractNamedEntity {
 
     @Column(name = "datetime")
+    @NotNull
     private LocalDateTime dateCreate;
+
+    @Column(name = "price")
+    @NotNull
     private float price;
 
     @Column(name = "restaurant_Id")
+    @NotNull
     private int restaurantId;
 
     public void setDateCreate(LocalDateTime dateCreate) {

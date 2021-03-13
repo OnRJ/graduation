@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.food.util.ValidationUtil.checkId;
+
 @RestController
 @RequestMapping("/rest")
 public class RestaurantController {
@@ -34,7 +36,7 @@ public class RestaurantController {
     @PostMapping("/restaurants/restaurantId={id}")
     @ResponseStatus(HttpStatus.OK)
     public Restaurant update(@PathVariable String id, @RequestBody Restaurant restaurant) {
-        int restaurantId = service.checkId(id);
+        int restaurantId = checkId(id);
         return service.update(restaurantId, restaurant);
     }
 }

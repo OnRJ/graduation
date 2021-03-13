@@ -1,6 +1,5 @@
 package com.food.service;
 
-import com.food.util.exception.BadRequestException;
 import com.food.model.Vote;
 import com.food.repository.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,23 +29,12 @@ public class VoteService {
         if (userVote.size() >= 1 && LocalDateTime.now().getHour() < 11) {
             repository.delete(userVote.get(0));
         } else if(userVote.size() >= 1 && LocalDateTime.now().getHour() >= 11) {
-            System.out.println("Сегодня уже нет возмоности проголосовать");
+            System.out.println("Сегодня уже нет возможности проголосовать");
         } else {
             vote.setDateCreate(LocalDateTime.now());
             repository.save(vote);
         }
         return vote;
-    }
-
-    public int checkId(String id) {
-        if (id == null || id.equals("0") || id.equals("")) {
-            throw new BadRequestException("ID is incorrect");
-        }
-        try {
-            return Integer.parseInt(id);
-        } catch (NumberFormatException e) {
-            throw new BadRequestException("ID is not a number", e);
-        }
     }
 
     private List<Vote> getVotesByUserToday(int userId) {

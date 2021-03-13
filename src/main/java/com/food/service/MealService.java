@@ -1,6 +1,5 @@
 package com.food.service;
 
-import com.food.util.exception.BadRequestException;
 import com.food.model.Meal;
 import com.food.repository.MealRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,16 +28,5 @@ public class MealService {
     public Meal create(Meal meal) {
         meal.setDateCreate(LocalDateTime.now());
         return repository.save(meal);
-    }
-
-    public int checkId(String id) {
-        if (id == null || id.equals("0") || id.equals("")) {
-            throw new BadRequestException("ID is incorrect");
-        }
-        try {
-            return Integer.parseInt(id);
-        } catch (NumberFormatException e) {
-            throw new BadRequestException("ID is not a number", e);
-        }
     }
 }

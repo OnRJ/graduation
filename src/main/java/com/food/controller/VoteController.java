@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import static com.food.util.ValidationUtil.checkId;
+
 @RestController
 @RequestMapping("/rest")
 public class VoteController {
@@ -20,7 +22,7 @@ public class VoteController {
     @GetMapping("/votes/restaurantId={id}/count")
     @ResponseStatus(HttpStatus.OK)
     public long getCount(@PathVariable String id) {
-        int restaurantId = service.checkId(id);
+        int restaurantId = checkId(id);
         return service.getCount(restaurantId);
     }
 

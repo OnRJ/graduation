@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.food.util.ValidationUtil.checkId;
+
 @RestController
 @RequestMapping("/rest")
 public class MealController {
@@ -21,8 +23,8 @@ public class MealController {
 
     @GetMapping("/meals/restaurantId={id}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Meal> getCount(@PathVariable String id) {
-        int restaurantId = service.checkId(id);
+    public List<Meal> getAll(@PathVariable String id) {
+        int restaurantId = checkId(id);
         return service.getAll(restaurantId);
     }
 

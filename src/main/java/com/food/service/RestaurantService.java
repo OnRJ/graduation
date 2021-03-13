@@ -1,6 +1,5 @@
 package com.food.service;
 
-import com.food.util.exception.BadRequestException;
 import com.food.util.exception.NotFoundException;
 import com.food.model.Restaurant;
 import com.food.repository.RestaurantRepository;
@@ -39,16 +38,5 @@ public class RestaurantService {
         }
 
         return repository.save(restaurant);
-    }
-
-    public int checkId(String id) {
-        if (id == null || id.equals("0") || id.equals("")) {
-            throw new BadRequestException("ID is incorrect");
-        }
-        try {
-            return Integer.parseInt(id);
-        } catch (NumberFormatException e) {
-            throw new BadRequestException("ID is not a number", e);
-        }
     }
 }

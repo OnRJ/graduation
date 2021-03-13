@@ -8,6 +8,8 @@ public class Restaurant extends AbstractNamedEntity {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Restaurant{" +
+                "id=" + id +
+                '}';
     }
 }
