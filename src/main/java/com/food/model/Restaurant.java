@@ -1,6 +1,7 @@
 package com.food.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "restaurants")
