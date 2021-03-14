@@ -2,7 +2,13 @@ package com.food.model;
 
 import org.springframework.util.Assert;
 
-import javax.persistence.*;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Access;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.AccessType;
 
 @MappedSuperclass
 @Access(AccessType.FIELD)

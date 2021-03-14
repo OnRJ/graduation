@@ -10,15 +10,15 @@ import java.time.LocalDateTime;
 @Table(name = "meals")
 public class Meal extends AbstractNamedEntity {
 
-    @Column(name = "datetime")
+    @Column(name = "datetime", nullable = false)
     @NotNull
     private LocalDateTime dateCreate;
 
-    @Column(name = "price")
+    @Column(name = "price", nullable = false)
     @NotNull
     private float price;
 
-    @Column(name = "restaurant_Id")
+    @Column(name = "restaurant_Id", nullable = false)
     @NotNull
     private int restaurantId;
 

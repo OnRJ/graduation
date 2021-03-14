@@ -2,7 +2,16 @@ package com.food.model;
 
 import org.springframework.util.CollectionUtils;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Enumerated;
+import javax.persistence.UniqueConstraint;
+import javax.persistence.JoinColumn;
+import javax.persistence.ElementCollection;
+import javax.persistence.CollectionTable;
+import javax.persistence.FetchType;
+import javax.persistence.EnumType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -16,20 +25,18 @@ import java.util.Set;
 @Table(name = "users")
 public class User extends AbstractBaseEntity {
 
-    @Column(name = "email", unique = true)
+    @Column(name = "email", unique = true, nullable = false)
     @Email
     @NotBlank
-    @NotNull
     @Size(max = 100)
     private String email;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     @NotBlank
-    @NotNull
     @Size(min = 5, max = 100)
     private String password;
 
-    @Column(name = "registered", columnDefinition = "timestamp default now()")
+    @Column(name = "registered", columnDefinition = "timestamp default now()", nullable = false)
     @NotNull
     private LocalDateTime registered;
 
